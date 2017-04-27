@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import NavLink from './NavLink';
 
 const Student = (props) => {
-  console.log('~~~props in Student ', props);
     return (
       <div>
         <h2>Student Name: {props.params.name}</h2>
@@ -16,7 +15,6 @@ const Student = (props) => {
 
 // ------------- Container
 const mapStateToProps = (state) => {
-  console.log('~~state in Student ', state);
   return {
     selectedStudent: state.students.selectedStudent
   };

@@ -16264,7 +16264,6 @@ var _NavLink2 = _interopRequireDefault(_NavLink);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Student = function Student(props) {
-  console.log('~~~props in Student ', props);
   return _react2.default.createElement(
     'div',
     null,
@@ -16295,7 +16294,6 @@ var Student = function Student(props) {
 
 // ------------- Container
 var mapStateToProps = function mapStateToProps(state) {
-  console.log('~~state in Student ', state);
   return {
     selectedStudent: state.students.selectedStudent
   };
@@ -16321,13 +16319,21 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(14);
 
-var _NavLink = __webpack_require__(33);
-
-var _NavLink2 = _interopRequireDefault(_NavLink);
-
 var _AddStudent = __webpack_require__(91);
 
 var _AddStudent2 = _interopRequireDefault(_AddStudent);
+
+var _Table = __webpack_require__(324);
+
+var _Table2 = _interopRequireDefault(_Table);
+
+var _DeleteButton = __webpack_require__(325);
+
+var _DeleteButton2 = _interopRequireDefault(_DeleteButton);
+
+var _NavLink = __webpack_require__(33);
+
+var _NavLink2 = _interopRequireDefault(_NavLink);
 
 var _studentReducer = __webpack_require__(35);
 
@@ -16335,6 +16341,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // ------------- Component
 var Students = function Students(props) {
+  console.log('~~students props', props);
   return _react2.default.createElement(
     'div',
     null,
@@ -16345,42 +16352,47 @@ var Students = function Students(props) {
     ),
     _react2.default.createElement(_AddStudent2.default, null),
     _react2.default.createElement(
-      'h1',
-      null,
-      'These are the Students!'
-    ),
-    _react2.default.createElement(
-      'ul',
-      null,
-      props.allStudents.map(function (student) {
-        return _react2.default.createElement(
-          'li',
-          { key: student.id },
-          _react2.default.createElement(
-            _NavLink2.default,
-            { to: '/students/' + student.name },
-            student.name
-          ),
-          _react2.default.createElement(
-            'button',
-            { onClick: function onClick() {
-                return props.removeStudent(student.id);
-              } },
-            '  X '
-          )
-        );
+      'div',
+      { className: 'col-md-9' },
+      _react2.default.createElement(
+        'h1',
+        null,
+        'These are the Students!'
+      ),
+      props.rows && _react2.default.createElement(_Table2.default, {
+        rows: props.rows,
+        columns: props.columns,
+        tableName: 'The Students'
       })
     ),
     props.children
   );
 };
 
+// <ul>
+//   { props.allStudents.map(student => (
+//     <li key={student.id} ><NavLink to={`/students/${student.name}`}>{student.name}
+//        </NavLink><button onClick= { () => props.removeStudent(student.id)}>  X </button></li>
+//   )) }
+// </ul>
 // ------------- Container
 // Required libraries
 var mapStateToProps = function mapStateToProps(state) {
-  return {
-    allStudents: state.students.allStudents
-  };
+  var allStudents = state.students.allStudents;
+  if (allStudents.length) {
+    var rows = allStudents.map(function (student) {
+      var deleteRow = _react2.default.createElement(_DeleteButton2.default, { type: 'student', id: student.id });
+      var entry = _react2.default.createElement(
+        _NavLink2.default,
+        { to: '/students/' + student.name },
+        ' ',
+        student.name
+      );
+      return { delete: deleteRow, student: entry };
+    });
+    return { rows: rows, columns: Object.keys(rows[0]), allStudents: allStudents };
+  }
+  return {}; // returns empty object if no students on the state
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -33367,6 +33379,153 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 324 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(14);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// ------------- Component
+// Required libraries
+var Table = function Table(props) {
+    var columns = props.columns;
+    var rows = props.rows;
+    var tableName = props.tableName;
+
+    return _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement(
+            'div',
+            { className: 'panel panel-default' },
+            _react2.default.createElement(
+                'div',
+                { className: 'panel-heading' },
+                ' ',
+                tableName
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'panel-body' },
+                _react2.default.createElement(
+                    'table',
+                    { width: '100%', className: 'table table-striped table-bordered table-hover', id: 'dataTables-example' },
+                    _react2.default.createElement(
+                        'thead',
+                        null,
+                        _react2.default.createElement(
+                            'tr',
+                            null,
+                            columns && columns.map(function (column, index) {
+                                return _react2.default.createElement(
+                                    'th',
+                                    { key: index },
+                                    column
+                                );
+                            })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tbody',
+                        null,
+                        rows && rows.map(function (row, index) {
+                            return _react2.default.createElement(
+                                'tr',
+                                { key: index },
+                                Object.keys(row).map(function (columnName, index) {
+                                    return _react2.default.createElement(
+                                        'td',
+                                        { key: index },
+                                        row[columnName]
+                                    );
+                                })
+                            );
+                        })
+                    )
+                )
+            )
+        )
+    );
+};
+
+// ------------- Container
+var mapStateToProps = null;
+var mapDispatchToProps = null;
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Table);
+
+/***/ }),
+/* 325 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(14);
+
+var _studentReducer = __webpack_require__(35);
+
+var _campusReducer = __webpack_require__(34);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// ------------- Component
+// Required libraries
+var DeleteButton = function DeleteButton(props) {
+  console.log('~~props in button ', props);
+  var onButtonClick = function onButtonClick(e) {
+    //e.preventDefault();
+    if (props.type === 'student') {
+      props.removeStudent(props.id);
+    } else {
+      props.removeCampus(props.id);
+    }
+  };
+
+  return _react2.default.createElement(
+    'button',
+    { className: 'btn btn-primary btn-large', onClick: onButtonClick },
+    'X'
+  );
+};
+
+// ------------- Container
+var mapStateToProps = null;
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    removeCampus: function removeCampus(campusId) {
+      console.log('remove campus campusId ', campusId);
+      dispatch((0, _campusReducer.removeCampus)(campusId));
+    },
+    removeStudent: function removeStudent(studentId) {
+      console.log('remove student studentId ', studentId);
+      dispatch((0, _studentReducer.removeStudent)(studentId));
+    }
+  };
+};
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(DeleteButton);
 
 /***/ })
 /******/ ]);

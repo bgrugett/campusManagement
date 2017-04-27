@@ -1,6 +1,7 @@
 'use strict';
 import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory, IndexRedirect} from 'react-router';
+import App from './components/App';
 import Home from './components/Home';
 import Students from './components/Students';
 import Student from './components/Student';
@@ -14,22 +15,19 @@ import { connect } from 'react-redux';
 const Root = (props) => {
   //console.log('~~~props inside root ', props);
 
-const handleOnEnter = (event) => {
-  props.fetchStudents();
-  props.fetchCampuses();
-};
-
   return (
     <Router history={browserHistory}>
-      <Route path="/" component={Home}>
-        <Route path="/students" component={Students} onEnter={ handleOnEnter} >
+      <Route path="/" component={App}>
+        <Route path="/home" component={Home} />
+        <Route path="/students" component={Students}  >
           <Route path="/students/:name" component={Student} onEnter={ props.selectStudent } />
           <Route path="/students/AddStudent" component={AddStudent}  />
         </Route>
-        <Route path="/campuses" component={Campuses} onEnter={ handleOnEnter}  >
+        <Route path="/campuses" component={Campuses} >
           <Route path="/campuses/:name" component={Campus} onEnter={ props.selectCampus } />
           <Route path="/campuses/AddCampus" component={AddCampus}  />
         </Route>
+        <IndexRedirect to="/home" />
       </Route>
     </Router>
   );

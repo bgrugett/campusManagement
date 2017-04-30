@@ -12,8 +12,8 @@ const Campuses = (props) => {
     <h3>Add a Campus </h3>
       <AddCampus />
       <h1>These are the Campuses!</h1>
-      <ul>
-        <div className="col-md-5">
+      <ul className="text-center">
+        <div className="col-md-3 text-center" >
           { props.allCampuses.map(campus => (
             <li key={campus.id} ><NavLink to={`/campuses/${campus.name}`}>
               <h3>{campus.name}</h3>

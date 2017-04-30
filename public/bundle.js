@@ -16062,10 +16062,10 @@ var Campuses = function Campuses(props) {
     ),
     _react2.default.createElement(
       'ul',
-      null,
+      { className: 'text-center' },
       _react2.default.createElement(
         'div',
-        { className: 'col-md-5' },
+        { className: 'col-md-3 text-center' },
         props.allCampuses.map(function (campus) {
           return _react2.default.createElement(
             'li',
@@ -16200,7 +16200,7 @@ var Home = function Home(props) {
       _react2.default.createElement(
         "h1",
         null,
-        "Welcome to the Margaret Hamilton School of Javascript"
+        "The Margaret Hamilton School of Javascript"
       ),
       _react2.default.createElement(
         "div",
@@ -16225,6 +16225,24 @@ var Home = function Home(props) {
           "h4",
           null,
           "Margaret Hamilton: Wicked Witch"
+        )
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "container" },
+      _react2.default.createElement(
+        "header",
+        { className: "jumbotron hero-spacer" },
+        _react2.default.createElement(
+          "h2",
+          null,
+          "Where the two Margaret Hamiltons rule!"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "We dominate world education beacause we can!"
         )
       )
     ),

@@ -4,7 +4,7 @@ import React from 'react';
     return (
       <div>
         <header className="jumbotron hero-spacer">
-          <h1>Welcome to the Margaret Hamilton School of Javascript</h1>
+          <h1>The Margaret Hamilton School of Javascript</h1>
           <div className = "pic">
           <img src = "/images/Margaret_Hamilton_1995.jpg" />
           <h4>Margaret Hamilton: Software Engineer</h4>
@@ -15,8 +15,15 @@ import React from 'react';
           <h4>Margaret Hamilton: Wicked Witch</h4>
           </div>
         </header>
+        <div className="container">
+          <header className="jumbotron hero-spacer">
+            <h2>Where the two Margaret Hamiltons rule!</h2>
+            <p>We dominate world education beacause we can!</p>
+          </header>
+        </div>
         {props.children}
       </div>
+
     );
   };
 export default Home;

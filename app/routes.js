@@ -24,9 +24,9 @@ const Root = (props) => {
           <Route path="/students/AddStudent" component={AddStudent}  />
         </Route>
         <Route path="/campuses" component={Campuses} >
-          <Route path="/campuses/:name" component={Campus} onEnter={ props.selectCampus } />
           <Route path="/campuses/AddCampus" component={AddCampus}  />
         </Route>
+        <Route path="/campuses/:name" component={Campus} onEnter={ props.selectCampus } />
         <IndexRedirect to="/home" />
       </Route>
     </Router>

@@ -13,7 +13,12 @@ const Campus = (props) => {
     return (
       <div>
         <h2>Campus Name: {props.params.name}</h2>
-        <h3>Campus Planet: {props.selectedCampus.planet}</h3>
+        <h3>Campus Location: {props.selectedCampus.location}</h3>
+        <div className="col-md-5">
+          <div className="thumbnail">
+            <img className="img-responsive" src={props.selectedCampus.imageURL} />
+          </div>
+        </div>
         <h3>These are the Students on this Campus</h3>
       <ul>
         { campusStudents.map(student => (

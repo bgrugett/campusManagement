@@ -9,32 +9,27 @@ import {removeStudent} from '../reducers/studentReducer';
 
 // ------------- Component
 const Students = (props) => {
-  console.log('~~students props', props);
   return (
-    <div>
-      <h3>Add a Student </h3>
-      <AddStudent />
-      <div className="col-md-9">
-        <h1>These are the Students!</h1>
-          { props.rows &&
-            <Table
-                rows = {props.rows}
-                columns = {props.columns}
-                tableName = {'The Students'}
-            />
-          }
-      </div>
-      {props.children}
-    </div>
+     <header className="jumbotron hero-spacer">
+        <div>
+          <h3>Add a Student </h3>
+          <AddStudent />
+          <div className="col-md-9">
+              { props.rows &&
+                <Table
+                    rows = {props.rows}
+                    columns = {props.columns}
+                    tableName = {'The Students'}
+                />
+              }
+          </div>
+          {props.children}
+        </div>
+      </header>
+
   );
 };
 
-      // <ul>
-      //   { props.allStudents.map(student => (
-      //     <li key={student.id} ><NavLink to={`/students/${student.name}`}>{student.name}
-      //        </NavLink><button onClick= { () => props.removeStudent(student.id)}>  X </button></li>
-      //   )) }
-      // </ul>
 // ------------- Container
 const mapStateToProps = (state) => {
     let allStudents = state.students.allStudents;

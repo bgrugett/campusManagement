@@ -13,10 +13,15 @@ const Campuses = (props) => {
       <AddCampus />
       <h1>These are the Campuses!</h1>
       <ul>
-        { props.allCampuses.map(campus => (
-          <li key={campus.id} ><NavLink to={`/campuses/${campus.name}`}>{campus.name}
-             </NavLink><button onClick= { () => props.removeCampus(campus.id)}>  X </button></li>
+        <div className="col-md-5">
+          { props.allCampuses.map(campus => (
+            <li key={campus.id} ><NavLink to={`/campuses/${campus.name}`}>
+              <h3>{campus.name}</h3>
+              </NavLink><button onClick= { () => props.removeCampus(campus.id)}>  Delete </button>
+              <img className="img-responsive" src={campus.imageURL} />
+            </li>
         )) }
+        </div>
       </ul>
       {props.children}
     </div>

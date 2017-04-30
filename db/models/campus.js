@@ -4,6 +4,7 @@ var db = require('../index.js');
 
 const Campus = db.define('campus', {
   name: Sequelize.STRING,
-  planet: Sequelize.STRING
+  location: Sequelize.STRING,
+  imageURL: Sequelize.STRING
 });
 module.exports = Campus;

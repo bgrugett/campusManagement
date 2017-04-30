@@ -6,11 +6,13 @@ class AddCampus extends React.Component {
   constructor(props) {
     super(props);
     this.state = {name: '',
-                  planet: ''
+                  location: '',
+                  imageURL: ''
                 };
 
     this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleChangePlanet = this.handleChangePlanet.bind(this);
+    this.handleChangeLocation = this.handleChangeLocation.bind(this);
+    this.handleChangeImage = this.handleChangeImage.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -18,13 +20,17 @@ class AddCampus extends React.Component {
     this.setState({name: event.target.value});
   }
 
-  handleChangePlanet(event) {
-    this.setState({planet: event.target.value});
+  handleChangeLocation(event) {
+    this.setState({location: event.target.value});
+  }
+
+  handleChangeImage(event) {
+    this.setState({imageURL: event.target.value});
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    let campusData = {name: this.state.name, planet: this.state.planet};
+    let campusData = {name: this.state.name, location: this.state.location, imageURL: this.state.imageURL};
     this.props.addCampus(campusData);
   }
 
@@ -37,8 +43,12 @@ class AddCampus extends React.Component {
           <input type="text" value={this.state.name} onChange={this.handleChangeName} />
         </label>
         <label>
-          Planet:
-          <input type="text" value={this.state.planet} onChange={this.handleChangePlanet} />
+          Location:
+          <input type="text" value={this.state.location} onChange={this.handleChangeLocation} />
+        </label>
+        <label>
+          Image:
+          <input type="text" value={this.state.imageURL} onChange={this.handleChangeImage} />
         </label>
         <input type="submit" value="Submit" />
       </form>

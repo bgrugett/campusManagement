@@ -5459,6 +5459,8 @@ button.list-group-item-danger.active:focus {
   padding: 15px;
 }
 .panel-heading {
+  font-size: 24px;
+  text-align: center;
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;

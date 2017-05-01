@@ -3,12 +3,9 @@ import { connect } from 'react-redux';
 import NavLink from './NavLink';
 
 const Campus = (props) => {
-  console.log('~~~props in Campus ', props);
   let id = props.selectedCampus.id;
   let allStudents = props.allStudents;
-  console.log('all students ', allStudents);
   let campusStudents = allStudents.filter(obj => obj.campusId === id);
-  console.log('campus students ', campusStudents);
 
     return (
       <div>
@@ -32,7 +29,6 @@ const Campus = (props) => {
 
 // ------------- Container
 const mapStateToProps = (state) => {
-  console.log('~~state in Campus ', state);
   return {
     allStudents: state.students.allStudents,
     selectedCampus: state.campuses.selectedCampus

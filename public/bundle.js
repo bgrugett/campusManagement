@@ -15947,14 +15947,11 @@ var _NavLink2 = _interopRequireDefault(_NavLink);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Campus = function Campus(props) {
-  console.log('~~~props in Campus ', props);
   var id = props.selectedCampus.id;
   var allStudents = props.allStudents;
-  console.log('all students ', allStudents);
   var campusStudents = allStudents.filter(function (obj) {
     return obj.campusId === id;
   });
-  console.log('campus students ', campusStudents);
 
   return _react2.default.createElement(
     'div',
@@ -16005,7 +16002,6 @@ var Campus = function Campus(props) {
 
 // ------------- Container
 var mapStateToProps = function mapStateToProps(state) {
-  console.log('~~state in Campus ', state);
   return {
     allStudents: state.students.allStudents,
     selectedCampus: state.campuses.selectedCampus
@@ -16047,51 +16043,55 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // ------------- Component
 var Campuses = function Campuses(props) {
   return _react2.default.createElement(
-    'div',
-    null,
+    'header',
+    { className: 'jumbotron hero-spacer' },
     _react2.default.createElement(
-      'h3',
+      'div',
       null,
-      'Add a Campus '
-    ),
-    _react2.default.createElement(_AddCampus2.default, null),
-    _react2.default.createElement(
-      'h1',
-      null,
-      'These are the Campuses!'
-    ),
-    _react2.default.createElement(
-      'ul',
-      { className: 'text-center' },
       _react2.default.createElement(
-        'div',
-        { className: 'col-md-3 text-center' },
-        props.allCampuses.map(function (campus) {
-          return _react2.default.createElement(
-            'li',
-            { key: campus.id },
-            _react2.default.createElement(
-              _NavLink2.default,
-              { to: '/campuses/' + campus.name },
+        'h3',
+        null,
+        'Add a Campus '
+      ),
+      _react2.default.createElement(_AddCampus2.default, null),
+      _react2.default.createElement(
+        'h2',
+        null,
+        'These are the Campuses!'
+      ),
+      _react2.default.createElement(
+        'ul',
+        { className: 'text-center' },
+        _react2.default.createElement(
+          'div',
+          { className: 'col-md-3 text-center' },
+          props.allCampuses.map(function (campus) {
+            return _react2.default.createElement(
+              'li',
+              { key: campus.id },
               _react2.default.createElement(
-                'h3',
-                null,
-                campus.name
-              )
-            ),
-            _react2.default.createElement(
-              'button',
-              { onClick: function onClick() {
-                  return props.removeCampus(campus.id);
-                } },
-              '  Delete '
-            ),
-            _react2.default.createElement('img', { className: 'img-responsive', src: campus.imageURL })
-          );
-        })
-      )
-    ),
-    props.children
+                _NavLink2.default,
+                { to: '/campuses/' + campus.name },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  campus.name
+                )
+              ),
+              _react2.default.createElement(
+                'button',
+                { onClick: function onClick() {
+                    return props.removeCampus(campus.id);
+                  } },
+                '  Delete '
+              ),
+              _react2.default.createElement('img', { className: 'img-responsive', src: campus.imageURL })
+            );
+          })
+        )
+      ),
+      props.children
+    )
   );
 };
 

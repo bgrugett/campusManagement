@@ -8,10 +8,11 @@ import {removeCampus} from '../reducers/campusReducer';
 // ------------- Component
 const Campuses = (props) => {
   return (
+    <header className="jumbotron hero-spacer">
     <div>
     <h3>Add a Campus </h3>
       <AddCampus />
-      <h1>These are the Campuses!</h1>
+      <h2>These are the Campuses!</h2>
       <ul className="text-center">
         <div className="col-md-3 text-center" >
           { props.allCampuses.map(campus => (
@@ -25,6 +26,7 @@ const Campuses = (props) => {
       </ul>
       {props.children}
     </div>
+    </header>
   );
 };
 

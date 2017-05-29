@@ -13,7 +13,6 @@ import { connect } from 'react-redux';
 
 
 const Root = (props) => {
-  //console.log('~~~props inside root ', props);
 
   return (
     <Router history={browserHistory}>

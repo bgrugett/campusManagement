@@ -14927,7 +14927,6 @@ var _campusReducer = __webpack_require__(26);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Root = function Root(props) {
-  //console.log('~~~props inside root ', props);
 
   return _react2.default.createElement(
     _reactRouter.Router,
@@ -16114,7 +16113,6 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     removeCampus: function removeCampus(campusId) {
-      console.log('remove campus campusId ', campusId);
       dispatch((0, _campusReducer.removeCampus)(campusId));
     }
   };
@@ -16148,7 +16146,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // ------------- Component
 // Required libraries
 var DeleteButton = function DeleteButton(props) {
-  console.log('~~props in button ', props);
   var onButtonClick = function onButtonClick(e) {
     //e.preventDefault();
     if (props.type === 'student') {
@@ -16170,11 +16167,9 @@ var mapStateToProps = null;
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     removeCampus: function removeCampus(campusId) {
-      console.log('remove campus campusId ', campusId);
       dispatch((0, _campusReducer.removeCampus)(campusId));
     },
     removeStudent: function removeStudent(studentId) {
-      console.log('remove student studentId ', studentId);
       dispatch((0, _studentReducer.removeStudent)(studentId));
     }
   };
@@ -16506,7 +16501,6 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     removeStudent: function removeStudent(studentId) {
-      console.log('remove student studentId ', studentId);
       dispatch((0, _studentReducer.removeStudent)(studentId));
     }
   };

@@ -44,7 +44,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     removeCampus: (campusId) => {
-      console.log('remove campus campusId ', campusId);
       dispatch(removeCampus(campusId));
     }
   };

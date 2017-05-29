@@ -6,7 +6,6 @@ import {removeCampus} from '../reducers/campusReducer';
 
 // ------------- Component
 const DeleteButton = (props) => {
-  console.log('~~props in button ', props);
     const onButtonClick = (e) => {
         //e.preventDefault();
         if (props.type === 'student') {
@@ -27,11 +26,9 @@ const mapStateToProps = null;
 const mapDispatchToProps = (dispatch) => {
   return {
     removeCampus: (campusId) => {
-      console.log('remove campus campusId ', campusId);
       dispatch(removeCampus(campusId));
     },
     removeStudent: (studentId) => {
-      console.log('remove student studentId ', studentId);
       dispatch(removeStudent(studentId));
     }
   };

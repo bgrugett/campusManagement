@@ -15,7 +15,7 @@ const Table = (props) => {
         <div className="panel panel-default">
             <div className="panel-heading"> {tableName}</div>
             <div className="panel-body">
-            <table width="100%" className="table table-striped table-bordered table-hover" id="dataTables-example">
+            <table width="80%" className="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr>
                       {columns && columns.map((column, index) => <th key={index}>{column}</th>)}

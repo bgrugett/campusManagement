@@ -8,7 +8,7 @@ const Campus = (props) => {
   let campusStudents = allStudents.filter(obj => obj.campusId === id);
 
     return (
-      <div>
+      <div style={{margin: '100px'}}>
         <h2>Campus Name: {props.params.name}</h2>
         <h3>Campus Location: {props.selectedCampus.location}</h3>
         <div className="col-md-5">

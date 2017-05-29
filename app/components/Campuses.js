@@ -8,25 +8,29 @@ import {removeCampus} from '../reducers/campusReducer';
 // ------------- Component
 const Campuses = (props) => {
   return (
-    <header className="jumbotron hero-spacer">
     <div>
-    <h3>Add a Campus </h3>
-      <AddCampus />
-      <h2>These are the Campuses!</h2>
-      <ul className="text-center">
-        <div className="col-md-3 text-center" >
-          { props.allCampuses.map(campus => (
-            <li key={campus.id} ><NavLink to={`/campuses/${campus.name}`}>
-              <h3>{campus.name}</h3>
-              </NavLink><button onClick= { () => props.removeCampus(campus.id)}>  Delete </button>
-              <img className="img-responsive" src={campus.imageURL} />
-            </li>
-        )) }
+      <header className="jumbotron hero-spacer">
+        <h3>Add a Campus </h3>
+        <AddCampus />
+      </header>
+          <h2>These are the Campuses!</h2>
+      <div className="container-fluid">
+        <div className="row, text-left" style={{textAlign: 'center'}}>
+          <div className="col-xs-6" >
+            <ul style={{listStyleType: 'none', display: 'inline-block', textAlign: 'left'}}>
+              { props.allCampuses.map(campus => (
+                <li key={campus.id}><NavLink to={`/campuses/${campus.name}`}>
+                  <h3>{campus.name}</h3>
+                  </NavLink><button onClick= { () => props.removeCampus(campus.id)}>  Delete </button>
+                  <img className="img-responsive"  style={{width: '300px', height: 'auto'}} src={campus.imageURL} />
+                </li>
+              )) }
+            </ul>
+          </div>
         </div>
-      </ul>
+      </div>
       {props.children}
     </div>
-    </header>
   );
 };
 

@@ -10,22 +10,22 @@ import {removeStudent} from '../reducers/studentReducer';
 // ------------- Component
 const Students = (props) => {
   return (
+    <div>
      <header className="jumbotron hero-spacer">
-        <div>
-          <h3>Add a Student </h3>
-          <AddStudent />
-          <div className="col-md-9">
-              { props.rows &&
-                <Table
-                    rows = {props.rows}
-                    columns = {props.columns}
-                    tableName = {'The Students'}
-                />
-              }
-          </div>
-          {props.children}
-        </div>
+       <h3>Add a Student </h3>
+       <AddStudent />
       </header>
+        <div className="col-md-9">
+         { props.rows &&
+            <Table
+              rows = {props.rows}
+              columns = {props.columns}
+              tableName = {'The Students'}
+            />
+         }
+        </div>
+          {props.children}
+    </div>
 
   );
 };

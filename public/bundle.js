@@ -15955,7 +15955,7 @@ var Campus = function Campus(props) {
 
   return _react2.default.createElement(
     'div',
-    null,
+    { style: { margin: '100px' } },
     _react2.default.createElement(
       'h2',
       null,
@@ -16043,55 +16043,63 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // ------------- Component
 var Campuses = function Campuses(props) {
   return _react2.default.createElement(
-    'header',
-    { className: 'jumbotron hero-spacer' },
+    'div',
+    null,
     _react2.default.createElement(
-      'div',
-      null,
+      'header',
+      { className: 'jumbotron hero-spacer' },
       _react2.default.createElement(
         'h3',
         null,
         'Add a Campus '
       ),
-      _react2.default.createElement(_AddCampus2.default, null),
+      _react2.default.createElement(_AddCampus2.default, null)
+    ),
+    _react2.default.createElement(
+      'h2',
+      null,
+      'These are the Campuses!'
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'container-fluid' },
       _react2.default.createElement(
-        'h2',
-        null,
-        'These are the Campuses!'
-      ),
-      _react2.default.createElement(
-        'ul',
-        { className: 'text-center' },
+        'div',
+        { className: 'row, text-left', style: { textAlign: 'center' } },
         _react2.default.createElement(
           'div',
-          { className: 'col-md-3 text-center' },
-          props.allCampuses.map(function (campus) {
-            return _react2.default.createElement(
-              'li',
-              { key: campus.id },
-              _react2.default.createElement(
-                _NavLink2.default,
-                { to: '/campuses/' + campus.name },
+          { className: 'col-xs-6' },
+          _react2.default.createElement(
+            'ul',
+            { style: { listStyleType: 'none', display: 'inline-block', textAlign: 'left' } },
+            props.allCampuses.map(function (campus) {
+              return _react2.default.createElement(
+                'li',
+                { key: campus.id },
                 _react2.default.createElement(
-                  'h3',
-                  null,
-                  campus.name
-                )
-              ),
-              _react2.default.createElement(
-                'button',
-                { onClick: function onClick() {
-                    return props.removeCampus(campus.id);
-                  } },
-                '  Delete '
-              ),
-              _react2.default.createElement('img', { className: 'img-responsive', src: campus.imageURL })
-            );
-          })
+                  _NavLink2.default,
+                  { to: '/campuses/' + campus.name },
+                  _react2.default.createElement(
+                    'h3',
+                    null,
+                    campus.name
+                  )
+                ),
+                _react2.default.createElement(
+                  'button',
+                  { onClick: function onClick() {
+                      return props.removeCampus(campus.id);
+                    } },
+                  '  Delete '
+                ),
+                _react2.default.createElement('img', { className: 'img-responsive', style: { width: '300px', height: 'auto' }, src: campus.imageURL })
+              );
+            })
+          )
         )
-      ),
-      props.children
-    )
+      )
+    ),
+    props.children
   );
 };
 
@@ -16450,28 +16458,28 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // ------------- Component
 var Students = function Students(props) {
   return _react2.default.createElement(
-    'header',
-    { className: 'jumbotron hero-spacer' },
+    'div',
+    null,
     _react2.default.createElement(
-      'div',
-      null,
+      'header',
+      { className: 'jumbotron hero-spacer' },
       _react2.default.createElement(
         'h3',
         null,
         'Add a Student '
       ),
-      _react2.default.createElement(_AddStudent2.default, null),
-      _react2.default.createElement(
-        'div',
-        { className: 'col-md-9' },
-        props.rows && _react2.default.createElement(_Table2.default, {
-          rows: props.rows,
-          columns: props.columns,
-          tableName: 'The Students'
-        })
-      ),
-      props.children
-    )
+      _react2.default.createElement(_AddStudent2.default, null)
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'col-md-9' },
+      props.rows && _react2.default.createElement(_Table2.default, {
+        rows: props.rows,
+        columns: props.columns,
+        tableName: 'The Students'
+      })
+    ),
+    props.children
   );
 };
 
@@ -16549,7 +16557,7 @@ var Table = function Table(props) {
                 { className: 'panel-body' },
                 _react2.default.createElement(
                     'table',
-                    { width: '100%', className: 'table table-striped table-bordered table-hover', id: 'dataTables-example' },
+                    { width: '80%', className: 'table table-striped table-bordered table-hover', id: 'dataTables-example' },
                     _react2.default.createElement(
                         'thead',
                         null,

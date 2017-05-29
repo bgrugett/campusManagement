@@ -46,7 +46,7 @@ const users = {
     campusId: 2
   },
   bullwinkle: {
-    name: 'Bullwindle',
+    name: 'Bullwinkle',
     email: 'moose@wassU.edu',
     campusId: 2
   },
@@ -57,7 +57,7 @@ const users = {
   },
   ford: {
     name: 'Gerald Ford',
-    email: 'gerry@pouts.gov',
+    email: 'gerry@potus.gov',
     campusId: 4
   },
   hamilton: {

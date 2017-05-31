@@ -8,7 +8,7 @@
     "server-test": "mocha ./tests/ --watch --compilers js:babel-register",
     "build": "webpack",
     "build-watch": "webpack -w",
-    "start": "nodemon server/start.js",
+    "start": " webpack -w & nodemon server/start.js",
     "seed": "node db/seed.js"
   },
   "keywords": [
